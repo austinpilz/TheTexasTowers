@@ -41,6 +41,10 @@ MISSING-IMAGES.md           ← images & pages the Archive never captured (see b
 GoDaddy domain-parking script, Google AdSense blocks, and the dead FrontPage
 hit-counter images were stripped from the HTML.
 
+**Added by this rehost:** a short disclaimer notice at the top of the homepage stating
+that this is an Internet Archive–sourced rehost (not the original author's site) and
+that most images were lost. This is the only editorial addition to the original content.
+
 ## Preview locally
 
 ```sh
