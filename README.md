@@ -1,4 +1,4 @@
-# The Texas Towers — archival reconstruction
+# The Texas Towers
 
 A static reconstruction of **www.thetexastowers.com**, a memorial site documenting
 the U.S. Air Force "Texas Towers". They were offshore radar platforms built in the Atlantic
@@ -6,8 +6,8 @@ during the Cold War, and especially Texas Tower #4, which collapsed into the sea
 January 15, 1961, killing all 28 men aboard.
 
 The original site was created by Mark Farmer (SpartaSoftware) and went offline after
-~2012 when the domain lapsed. This repository rebuilds the site's **content era
-(2007–2012)** from the Internet Archive's Wayback Machine. It is plain static HTML
+~2012 when the domain lapsed. This repository rebuilds the site's content era
+(2007–2012) from the Internet Archive's Wayback Machine. It is plain static HTML
 with relative links (originally authored in Microsoft FrontPage / Expression Web).
 
 ## Layout
