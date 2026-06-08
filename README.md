@@ -1,15 +1,14 @@
 # The Texas Towers — archival reconstruction
 
 A static reconstruction of **www.thetexastowers.com**, a memorial site documenting
-the U.S. Air Force "Texas Towers" — offshore radar platforms built in the Atlantic
+the U.S. Air Force "Texas Towers". They were offshore radar platforms built in the Atlantic
 during the Cold War, and especially Texas Tower #4, which collapsed into the sea on
 January 15, 1961, killing all 28 men aboard.
 
 The original site was created by Mark Farmer (SpartaSoftware) and went offline after
 ~2012 when the domain lapsed. This repository rebuilds the site's **content era
 (2007–2012)** from the Internet Archive's Wayback Machine. It is plain static HTML
-with relative links (originally authored in Microsoft FrontPage / Expression Web) —
-**no build step required.**
+with relative links (originally authored in Microsoft FrontPage / Expression Web).
 
 ## Layout
 
@@ -20,7 +19,7 @@ manifest.json               ← provenance: every recovered file → its source 
 MISSING-IMAGES.md           ← images & pages the Archive never captured (see below)
 ```
 
-## What was recovered — and what wasn't
+## Recovered vs Lost 
 
 **Recovered from the Wayback Machine:**
 - **45 HTML pages** — the homepage and all 34 chapters (`00-TheColdWar` … `33-NewsPaperClips`) plus the sub-pages under chapter 21.
@@ -37,53 +36,9 @@ MISSING-IMAGES.md           ← images & pages the Archive never captured (see b
 - **2 pages** (`21-…/FredBock/E-Mail-01.html` and `E-Mail-02.html`) — only the redirect
   stub was ever archived.
 
-**Cleaned for deployment** (original content and navigation untouched): the injected
-GoDaddy domain-parking script, Google AdSense blocks, and the dead FrontPage
-hit-counter images were stripped from the HTML.
-
-**Added by this rehost:** a short disclaimer notice at the top of the homepage stating
-that this is an Internet Archive–sourced rehost (not the original author's site) and
-that most images were lost. This is the only editorial addition to the original content.
-
-## Preview locally
-
-```sh
-python3 -m http.server 8000 --directory public
-# then open http://localhost:8000/
-```
-
-## Rebuild from the Archive
-
-```sh
-python3 tools/archive_download.py
-```
-
-Re-downloads every recoverable file from the Wayback Machine and regenerates `public/`,
-`manifest.json`, and `MISSING-IMAGES.md`. Standard-library Python 3 only — no dependencies.
-
-## Deploy
-
-**Push to GitHub** (from this directory):
-
-```sh
-gh repo create thetexastowers --public --source . --remote origin --push
-```
-
-(or create the repo in the GitHub UI and `git push`).
-
-**Cloudflare Pages** — connect the GitHub repo, then set:
-
-| Setting                 | Value          |
-| ----------------------- | -------------- |
-| Framework preset        | **None**       |
-| Build command           | *(leave empty)*|
-| Build output directory  | **`public`**   |
-
-No environment variables and no build step are needed — Cloudflare serves the contents
-of `public/` directly.
 
 ## Source & credit
 
 Original site © Mark Farmer / SpartaSoftware. Reconstructed from Internet Archive
-Wayback Machine captures (2007–2012); the homepage baseline is the 2011-08-06 snapshot.
+Wayback Machine captures (2007–2012). The homepage baseline is the 2011-08-06 snapshot.
 See [`manifest.json`](manifest.json) for the exact capture timestamp behind every file.
