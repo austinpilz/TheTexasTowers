@@ -1,0 +1,6 @@
+# Generated/derived artifacts — regenerate with `node build.js [--prod]`
+shots/
+proposal-a.html
+proposal-b.html
+proposal-c.html
+*.bak
