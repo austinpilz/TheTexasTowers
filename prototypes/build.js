@@ -351,8 +351,6 @@ body{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;colo
 .topin{display:flex;align-items:center;gap:18px;height:64px;max-width:1240px;margin:0 auto;padding:0 24px}
 .brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.13em;font-size:14px}
 .brand img{width:34px;height:34px;border-radius:50%;border:1px solid var(--stroke)}
-.topsearch{margin-left:auto;background:var(--glass);border:1px solid var(--stroke);border-radius:999px;
-  padding:9px 18px;font-size:13.5px;color:var(--mut)}
 .layout{max-width:1240px;margin:0 auto;padding:24px 24px 60px;display:grid;grid-template-columns:268px 1fr;gap:24px;align-items:start}
 /* frosted sidebar (layout from B, dark glass from A) */
 aside{position:sticky;top:88px;backdrop-filter:blur(20px) saturate(150%);-webkit-backdrop-filter:blur(20px) saturate(150%);
@@ -413,7 +411,6 @@ footer a{color:var(--cyan)}
 <div class="bg"></div><div class="bgphoto"></div>
 <header class="topbar"><div class="topin">
   <div class="brand"><img src="${img}/lIfering.jpg" alt="Life ring emblem">THE TEXAS TOWERS</div>
-  <div class="topsearch">⌕ Search photographs, names &amp; documents…</div>
 </div></header>
 
 <div class="layout">
