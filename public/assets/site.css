@@ -1,0 +1,59 @@
+/* The Texas Towers — shared frosted-glass theme for inner pages (PIL-12).
+   Matches the home page (prototypes/build.js, Proposal C). Background image paths
+   are relative to THIS file (public/assets/), so they resolve at any page depth. */
+:root{
+  --cyan:#63d2e8; --amber:#e8b75f;
+  --glass:rgba(255,255,255,.06); --stroke:rgba(255,255,255,.14);
+  --ink:#e9eef5; --mut:#9fb3c8;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body.tt{
+  margin:0; line-height:1.62; color:var(--ink); background:#04080f;
+  font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+/* atmosphere — mirrors the home page */
+.tt-bg{position:fixed;inset:0;z-index:-2;
+  background:
+   radial-gradient(120% 80% at 78% -10%, rgba(99,210,232,.16), transparent 55%),
+   radial-gradient(90% 70% at 5% 110%, rgba(40,80,140,.32), transparent 60%),
+   linear-gradient(180deg,#061224 0%,#040a14 55%,#020509 100%);}
+.tt-bg::after{content:"";position:absolute;inset:0;
+  background-image:linear-gradient(rgba(120,180,220,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(120,180,220,.05) 1px,transparent 1px);
+  background-size:46px 46px;mask-image:radial-gradient(circle at 50% 20%,#000,transparent 75%);}
+.tt-bgphoto{position:fixed;inset:0;z-index:-1;
+  background:url(../images/TexasTower4_small1.jpg) center 26% / cover no-repeat;
+  filter:blur(40px) saturate(.7) brightness(.45);opacity:.4;transform:scale(1.15)}
+/* sticky glass top bar */
+.tt-topbar{position:sticky;top:0;z-index:20;backdrop-filter:blur(22px) saturate(150%);-webkit-backdrop-filter:blur(22px) saturate(150%);
+  background:rgba(8,16,28,.55);border-bottom:1px solid var(--stroke)}
+.tt-topin{display:flex;align-items:center;gap:16px;max-width:1000px;margin:0 auto;padding:0 22px;height:60px}
+.tt-brand{display:flex;align-items:center;gap:11px;font-weight:700;letter-spacing:.13em;font-size:13.5px;color:var(--ink);text-decoration:none}
+.tt-brand img{width:32px;height:32px;border-radius:50%;border:1px solid var(--stroke)}
+.tt-back{margin-left:auto;font-size:13px;color:var(--mut);text-decoration:none;display:inline-flex;align-items:center;gap:6px;
+  padding:7px 15px;border:1px solid var(--stroke);border-radius:999px;background:var(--glass);white-space:nowrap}
+.tt-back:hover{color:#fff;border-color:rgba(99,210,232,.5)}
+/* frosted content container */
+.tt-main{max-width:1000px;margin:30px auto 50px;padding:0 22px}
+.tt-article{backdrop-filter:blur(20px) saturate(150%);-webkit-backdrop-filter:blur(20px) saturate(150%);
+  background:var(--glass);border:1px solid var(--stroke);border-radius:20px;padding:32px 36px;
+  box-shadow:0 30px 60px rgba(0,0,0,.42);overflow-wrap:break-word}
+/* restyle the preserved legacy content so it reads on the dark theme */
+.tt-article :where(h1,h2,h3,h4){color:#fff;line-height:1.18;margin:0 0 14px;letter-spacing:-.01em}
+.tt-article h1{font-size:30px;font-weight:800}
+.tt-article h2{font-size:22px;font-weight:700}
+.tt-article h3{font-size:18px;font-weight:700}
+.tt-article p{margin:0 0 14px}
+.tt-article a{color:var(--cyan);text-decoration:none}
+.tt-article a:hover{text-decoration:underline}
+.tt-article img{max-width:100%;height:auto;border-radius:10px;border:1px solid var(--stroke);background:rgba(255,255,255,.04)}
+.tt-article ul,.tt-article ol{padding-left:22px;margin:0 0 14px}
+.tt-article li{margin:3px 0}
+.tt-article table{max-width:100%;border-color:var(--stroke)}
+.tt-article hr{border:0;border-top:1px solid var(--stroke);margin:20px 0}
+.tt-article center{display:block}
+.tt-footer{max-width:1000px;margin:0 auto;padding:18px 22px 50px;color:#8ca0b4;font-size:12.5px;display:flex;gap:16px;flex-wrap:wrap}
+.tt-footer a{color:var(--cyan);text-decoration:none}
+.tt-footer a:hover{text-decoration:underline}
+@media(max-width:640px){.tt-article{padding:22px 18px}.tt-article h1{font-size:24px}}
