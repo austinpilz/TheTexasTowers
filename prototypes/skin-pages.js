@@ -43,6 +43,26 @@ function skin(file) {
     .replace(/color\s*:\s*(?:#000000|#000|black)\b\s*;?/gi, '')
     .replace(/(<font\b[^>]*?)\s+color\s*=\s*(["']?)(?:#000000|black)\2/gi, '$1');
 
+  // Fix dead thumbnail links. Each gallery thumbnail is wrapped in a link to a
+  // full-size image, but those full-size files were never archived (see
+  // MISSING-IMAGES.md), so clicking 404s. Where the full-size target is missing,
+  // point the link at the thumbnail that actually exists (opens at the only
+  // resolution we have, no 404); if even the thumbnail is gone, unwrap the link.
+  const pageDir = path.dirname(file);
+  const has = (rel) => { try { return fs.existsSync(path.join(pageDir, decodeURIComponent(rel.split('#')[0]))); } catch { return false; } };
+  // Match <a href="IMG" ...> ...<img>... </a>, tolerating inline wrappers
+  // (e.g. <span>) between the anchor and the image, without crossing anchors.
+  body = body.replace(
+    /<a\s+([^>]*?)href="([^"#]+\.(?:jpe?g|png|gif))((?:#[^"]*)?)"([^>]*)>((?:(?!<\/?a\b)[\s\S])*?<img\b[^>]*>(?:(?!<\/?a\b)[\s\S])*?)<\/a>/gi,
+    (m, pre, href, hash, post, inner) => {
+      if (has(href)) return m;                       // full-size exists: leave clickable
+      const srcMatch = inner.match(/<img\b[^>]*\bsrc="([^"]+)"/i);
+      const src = srcMatch && srcMatch[1];
+      if (src && has(src)) return `<a ${pre}href="${src}${hash}"${post}>${inner}</a>`;
+      return inner;                                  // nothing to link to: unwrap
+    }
+  );
+
   const head = [
     '<!DOCTYPE html>',
     '<html lang="en">',
