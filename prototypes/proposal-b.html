@@ -1,0 +1,159 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Texas Towers — Proposal B</title>
+<style>
+:root{--ink:#1c2c3e;--slate:#46617e;--accent:#2f6f8f;--sand:#b8863b;--line:rgba(40,70,110,.14);--glass:rgba(255,255,255,.62);}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);line-height:1.58;
+  background:#dbe7f1;-webkit-font-smoothing:antialiased}
+.bg{position:fixed;inset:0;z-index:-2;
+  background:radial-gradient(110% 70% at 85% -10%,#eef6fb,transparent 60%),
+   radial-gradient(90% 80% at -10% 0%,#e3eef7,transparent 55%),
+   linear-gradient(180deg,#e9f2f9,#d2e0ee 70%,#c7d8e8);}
+.bg::after{content:"";position:absolute;inset:0;opacity:.5;
+  background-image:repeating-linear-gradient(115deg,rgba(70,120,170,.05) 0 1px,transparent 1px 26px);}
+.topbar{position:sticky;top:0;z-index:20;backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);
+  background:rgba(255,255,255,.55);border-bottom:1px solid var(--line)}
+.topin{display:flex;align-items:center;gap:18px;height:62px;max-width:1240px;margin:0 auto;padding:0 24px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{width:36px;height:36px;border-radius:50%;border:1px solid var(--line)}
+.brand b{font-family:Georgia,"Times New Roman",serif;font-size:18px;letter-spacing:.02em}
+.topsearch{margin-left:auto;background:rgba(255,255,255,.7);border:1px solid var(--line);border-radius:999px;
+  padding:9px 18px;font-size:13.5px;color:var(--slate)}
+.layout{max-width:1240px;margin:0 auto;padding:26px 24px 60px;display:grid;grid-template-columns:268px 1fr;gap:26px;align-items:start}
+/* sidebar glass */
+aside{position:sticky;top:86px;backdrop-filter:blur(18px) saturate(150%);-webkit-backdrop-filter:blur(18px) saturate(150%);
+  background:var(--glass);border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:18px;
+  box-shadow:0 20px 40px rgba(40,70,110,.12)}
+.aside-h{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--slate);margin:4px 6px 12px}
+.navgroup{margin-bottom:14px}
+.navgroup-h{font-size:12.5px;font-weight:700;color:var(--c);padding:6px;border-left:3px solid var(--c);margin-bottom:2px}
+.navgroup a{display:flex;align-items:center;gap:8px;padding:5px 8px 5px 14px;font-size:12.5px;color:var(--slate);text-decoration:none;border-radius:8px}
+.navgroup a span{font-size:10.5px;color:#90a4ba;min-width:18px}
+.navgroup a em{margin-left:auto;font-style:normal;font-size:10.5px;color:#fff;background:var(--accent);border-radius:999px;padding:1px 7px;opacity:.85}
+.navgroup a:hover{background:rgba(47,111,143,.1);color:var(--ink)}
+main{min-width:0}
+/* hero */
+.hero{backdrop-filter:blur(18px) saturate(150%);-webkit-backdrop-filter:blur(18px) saturate(150%);
+  background:var(--glass);border:1px solid rgba(255,255,255,.75);border-radius:24px;padding:30px;margin-bottom:22px;
+  display:grid;grid-template-columns:1.4fr .8fr;gap:28px;align-items:center;box-shadow:0 24px 50px rgba(40,70,110,.14)}
+.eyebrow{color:var(--accent);letter-spacing:.26em;font-size:11.5px;font-weight:700;text-transform:uppercase}
+.hero h1{font-family:Georgia,"Times New Roman",serif;font-size:46px;line-height:1.05;margin:10px 0 10px;color:var(--ink)}
+.hero p{color:var(--slate);font-size:16px;max-width:32em}
+.tag{display:inline-block;margin-top:16px;background:rgba(184,134,59,.14);border:1px solid rgba(184,134,59,.4);
+  color:#8a6224;border-radius:10px;padding:8px 14px;font-size:13.5px}
+.frame{background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 10px 8px;box-shadow:0 16px 30px rgba(40,70,110,.16);transform:rotate(-1.4deg)}
+.frame img{width:100%;border-radius:8px;display:block}
+.frame .cap{font-size:11.5px;color:var(--slate);padding:8px 2px 2px;font-style:italic}
+.banner{display:flex;align-items:center;justify-content:space-between;margin:0 0 16px;padding:0 4px}
+.banner h2{font-family:Georgia,serif;font-size:22px}.banner span{font-size:12.5px;color:var(--slate)}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.card{backdrop-filter:blur(16px);background:var(--glass);border:1px solid rgba(255,255,255,.7);border-radius:18px;padding:18px 20px;
+  box-shadow:0 14px 30px rgba(40,70,110,.1)}
+.card h3{font-size:15px;color:var(--c);margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.card ul{list-style:none}
+.card li a{display:flex;align-items:center;gap:10px;padding:6px 6px;border-radius:8px;text-decoration:none;color:var(--ink)}
+.card li a:hover{background:rgba(47,111,143,.08)}
+.card .n{font-size:11px;color:#90a4ba;min-width:18px}
+.card .t{font-size:13.5px;flex:1}
+.card .c{font-size:11px;color:#fff;background:var(--c);border-radius:999px;padding:1px 8px;opacity:.85}
+.card .c.muted{background:transparent;color:#a8b6c6}
+.contribute{margin-top:20px;backdrop-filter:blur(16px);background:rgba(184,134,59,.1);border:1px solid rgba(184,134,59,.3);
+  border-radius:18px;padding:22px 24px;display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center}
+.contribute img{width:80px;height:80px;border-radius:50%;border:1px solid var(--line)}
+.contribute h3{color:#8a6224;font-size:17px;margin-bottom:6px}.contribute p{font-size:13.5px;color:var(--slate)}
+.contribute a{color:var(--accent)}
+footer{max-width:1240px;margin:0 auto;padding:0 24px 50px;color:var(--slate);font-size:12.5px}
+footer a{color:var(--accent)}
+@media(max-width:980px){.layout{grid-template-columns:1fr}aside{position:static}.hero{grid-template-columns:1fr}.cards{grid-template-columns:1fr}}
+</style></head>
+<body>
+<div class="bg"></div>
+<header class="topbar"><div class="topin">
+  <div class="brand"><img src="../public/images/lIfering.jpg" alt="Life ring emblem"><b>The Texas Towers</b></div>
+  <div class="topsearch">⌕ Search photographs, names &amp; documents…</div>
+</div></header>
+
+<div class="layout">
+  <aside>
+    <div class="aside-h">Browse the archive</div>
+    
+        <div class="navgroup">
+          <div class="navgroup-h" style="--c:#4a6fa5">The History & The Concept</div>
+          <a href="../public/00-TheColdWar/index.html"><span>00</span>The Cold War<em>12</em></a><a href="../public/01-4604thSupportGroup(TexasTowers)Insignia/index.html"><span>01</span>4604th Support Group Insignia<em>1</em></a><a href="../public/02-TheConceptionAndApproval,1952-1953/index.html"><span>02</span>The Conception & Approval, 1952–1953</a><a href="../public/03-TheGroundworkForImplementation,1953-1955/index.html"><span>03</span>Groundwork for Implementation, 1953–1955</a><a href="../public/04-TheLocations/index.html"><span>04</span>The Locations<em>2</em></a><a href="../public/05-TheRadarWarningZones/index.html"><span>05</span>The Radar Warning Zones<em>2</em></a>
+        </div>
+        <div class="navgroup">
+          <div class="navgroup-h" style="--c:#3f7d6e">Construction & Operations</div>
+          <a href="../public/06-TheConstruction/index.html"><span>06</span>The Construction<em>26</em></a><a href="../public/07-TheAKL-17/index.html"><span>07</span>The AKL-17<em>86</em></a><a href="../public/08-TheCommunicationsDifficulties/index.html"><span>08</span>The Communications Difficulties</a><a href="../public/10-TheFinalFix-AKAMoreNails/index.html"><span>10</span>The Final Fix: More Nails<em>6</em></a><a href="../public/24-EntertainmentOnboard/index.html"><span>24</span>Entertainment Onboard</a>
+        </div>
+        <div class="navgroup">
+          <div class="navgroup-h" style="--c:#9c5b4b">The Disaster</div>
+          <a href="../public/09-TheEndIsNearForTT4/index.html"><span>09</span>The End Is Near For TT4</a><a href="../public/11-HurricaneDonna/index.html"><span>11</span>Hurricane Donna<em>1</em></a><a href="../public/12-TheLastNor'easter/index.html"><span>12</span>The Last Nor’easter</a><a href="../public/13-TheEndOfTT4/index.html"><span>13</span>The End Of TT4<em>1</em></a>
+        </div>
+        <div class="navgroup">
+          <div class="navgroup-h" style="--c:#6a5a8c">Recovery & The Inquiry</div>
+          <a href="../public/14-TheRecovery/index.html"><span>14</span>The Recovery<em>30</em></a><a href="../public/15-TheInquiry/index.html"><span>15</span>The Inquiry<em>8</em></a><a href="../public/23-TheWreckageOfTexasTower4/index.html"><span>23</span>Wreckage & Chuck Zimmaro<em>24</em></a><a href="../public/16-TheCloseOfAChapterInHistory/index.html"><span>16</span>The Close Of A Chapter</a>
+        </div>
+        <div class="navgroup">
+          <div class="navgroup-h" style="--c:#a07b3e">Memorial & The Men</div>
+          <a href="../public/17-TheMiracle/index.html"><span>17</span>The Miracle<em>3</em></a><a href="../public/18-TheMemorialPlaque/index.html"><span>18</span>The Memorial Plaque</a><a href="../public/19-OtherTowerMatesThatHavePassedOn/index.html"><span>19</span>Tower Mates That Have Passed On</a><a href="../public/20-MenAndFamilyMembersOfTheTexasTowers/index.html"><span>20</span>Men & Family Members<em>31</em></a><a href="../public/21-FromTheMenOfTheTexasTowers/index.html"><span>21</span>From The Men Of The Texas Towers<em>166</em></a><a href="../public/26-TheTexasTowersAssociationAndHonors/index.html"><span>26</span>Association & Honors<em>4</em></a>
+        </div>
+        <div class="navgroup">
+          <div class="navgroup-h" style="--c:#4a6fa5">Documents, Media & Notes</div>
+          <a href="../public/22-TheTexasTower4Yearbook/index.html"><span>22</span>Texas Tower #4 Yearbook<em>10</em></a><a href="../public/25-TheHistoryChannelTheDoomedTower/index.html"><span>25</span>History Channel: “The Doomed Tower”</a><a href="../public/31-TexasTower4-WelcomeBook/index.html"><span>31</span>Texas Tower #4 Welcome Book<em>17</em></a><a href="../public/32-Movies/index.html"><span>32</span>TT Movies<em>18</em></a><a href="../public/30-NewAdditions/index.html"><span>30</span>New Additions</a><a href="../public/27-TheCreditsAndFootnotes/index.html"><span>27</span>Credits & Footnotes</a><a href="../public/28-TheOtherDisclosuresAndNotes/index.html"><span>28</span>Disclosures & Notes</a><a href="../public/29-OtherLinks/index.html"><span>29</span>Other Links</a>
+        </div>
+  </aside>
+
+  <main>
+    <section class="hero">
+      <div>
+        <div class="eyebrow">Cold War Early-Warning Radar · 1955–1963</div>
+        <h1>The Texas Towers</h1>
+        <p>Offshore radar platforms built off the U.S. northeast coast to watch for a Soviet air attack. This archive gathers the photographs, names, and documents of the men who served — and of Texas Tower No. 4, lost to the sea.</p>
+        <div class="tag">28 men lost · Texas Tower No. 4 · January 15, 1961</div>
+      </div>
+      <div class="frame">
+        <img src="../public/images/TexasTower4_small1.jpg" alt="Texas Tower No. 4 on its three caisson legs in the open Atlantic">
+        <div class="cap">Texas Tower No. 4 — original archive photograph</div>
+      </div>
+    </section>
+
+    <div class="banner"><h2>The Collection</h2><span>33 sections, organized by chapter</span></div>
+    <div class="cards">
+      <article class="card" style="--c:#4a6fa5">
+        <h3>The History & The Concept</h3>
+        <ul><li><a href="../public/00-TheColdWar/index.html"><span class="n">00</span><span class="t">The Cold War</span><span class="c">12</span></a></li><li><a href="../public/01-4604thSupportGroup(TexasTowers)Insignia/index.html"><span class="n">01</span><span class="t">4604th Support Group Insignia</span><span class="c">1</span></a></li><li><a href="../public/02-TheConceptionAndApproval,1952-1953/index.html"><span class="n">02</span><span class="t">The Conception & Approval, 1952–1953</span><span class="c muted">—</span></a></li><li><a href="../public/03-TheGroundworkForImplementation,1953-1955/index.html"><span class="n">03</span><span class="t">Groundwork for Implementation, 1953–1955</span><span class="c muted">—</span></a></li><li><a href="../public/04-TheLocations/index.html"><span class="n">04</span><span class="t">The Locations</span><span class="c">2</span></a></li><li><a href="../public/05-TheRadarWarningZones/index.html"><span class="n">05</span><span class="t">The Radar Warning Zones</span><span class="c">2</span></a></li></ul>
+      </article>
+      <article class="card" style="--c:#3f7d6e">
+        <h3>Construction & Operations</h3>
+        <ul><li><a href="../public/06-TheConstruction/index.html"><span class="n">06</span><span class="t">The Construction</span><span class="c">26</span></a></li><li><a href="../public/07-TheAKL-17/index.html"><span class="n">07</span><span class="t">The AKL-17</span><span class="c">86</span></a></li><li><a href="../public/08-TheCommunicationsDifficulties/index.html"><span class="n">08</span><span class="t">The Communications Difficulties</span><span class="c muted">—</span></a></li><li><a href="../public/10-TheFinalFix-AKAMoreNails/index.html"><span class="n">10</span><span class="t">The Final Fix: More Nails</span><span class="c">6</span></a></li><li><a href="../public/24-EntertainmentOnboard/index.html"><span class="n">24</span><span class="t">Entertainment Onboard</span><span class="c muted">—</span></a></li></ul>
+      </article>
+      <article class="card" style="--c:#9c5b4b">
+        <h3>The Disaster</h3>
+        <ul><li><a href="../public/09-TheEndIsNearForTT4/index.html"><span class="n">09</span><span class="t">The End Is Near For TT4</span><span class="c muted">—</span></a></li><li><a href="../public/11-HurricaneDonna/index.html"><span class="n">11</span><span class="t">Hurricane Donna</span><span class="c">1</span></a></li><li><a href="../public/12-TheLastNor'easter/index.html"><span class="n">12</span><span class="t">The Last Nor’easter</span><span class="c muted">—</span></a></li><li><a href="../public/13-TheEndOfTT4/index.html"><span class="n">13</span><span class="t">The End Of TT4</span><span class="c">1</span></a></li></ul>
+      </article>
+      <article class="card" style="--c:#6a5a8c">
+        <h3>Recovery & The Inquiry</h3>
+        <ul><li><a href="../public/14-TheRecovery/index.html"><span class="n">14</span><span class="t">The Recovery</span><span class="c">30</span></a></li><li><a href="../public/15-TheInquiry/index.html"><span class="n">15</span><span class="t">The Inquiry</span><span class="c">8</span></a></li><li><a href="../public/23-TheWreckageOfTexasTower4/index.html"><span class="n">23</span><span class="t">Wreckage & Chuck Zimmaro</span><span class="c">24</span></a></li><li><a href="../public/16-TheCloseOfAChapterInHistory/index.html"><span class="n">16</span><span class="t">The Close Of A Chapter</span><span class="c muted">—</span></a></li></ul>
+      </article>
+      <article class="card" style="--c:#a07b3e">
+        <h3>Memorial & The Men</h3>
+        <ul><li><a href="../public/17-TheMiracle/index.html"><span class="n">17</span><span class="t">The Miracle</span><span class="c">3</span></a></li><li><a href="../public/18-TheMemorialPlaque/index.html"><span class="n">18</span><span class="t">The Memorial Plaque</span><span class="c muted">—</span></a></li><li><a href="../public/19-OtherTowerMatesThatHavePassedOn/index.html"><span class="n">19</span><span class="t">Tower Mates That Have Passed On</span><span class="c muted">—</span></a></li><li><a href="../public/20-MenAndFamilyMembersOfTheTexasTowers/index.html"><span class="n">20</span><span class="t">Men & Family Members</span><span class="c">31</span></a></li><li><a href="../public/21-FromTheMenOfTheTexasTowers/index.html"><span class="n">21</span><span class="t">From The Men Of The Texas Towers</span><span class="c">166</span></a></li><li><a href="../public/26-TheTexasTowersAssociationAndHonors/index.html"><span class="n">26</span><span class="t">Association & Honors</span><span class="c">4</span></a></li></ul>
+      </article>
+      <article class="card" style="--c:#4a6fa5">
+        <h3>Documents, Media & Notes</h3>
+        <ul><li><a href="../public/22-TheTexasTower4Yearbook/index.html"><span class="n">22</span><span class="t">Texas Tower #4 Yearbook</span><span class="c">10</span></a></li><li><a href="../public/25-TheHistoryChannelTheDoomedTower/index.html"><span class="n">25</span><span class="t">History Channel: “The Doomed Tower”</span><span class="c muted">—</span></a></li><li><a href="../public/31-TexasTower4-WelcomeBook/index.html"><span class="n">31</span><span class="t">Texas Tower #4 Welcome Book</span><span class="c">17</span></a></li><li><a href="../public/32-Movies/index.html"><span class="n">32</span><span class="t">TT Movies</span><span class="c">18</span></a></li><li><a href="../public/30-NewAdditions/index.html"><span class="n">30</span><span class="t">New Additions</span><span class="c muted">—</span></a></li><li><a href="../public/27-TheCreditsAndFootnotes/index.html"><span class="n">27</span><span class="t">Credits & Footnotes</span><span class="c muted">—</span></a></li><li><a href="../public/28-TheOtherDisclosuresAndNotes/index.html"><span class="n">28</span><span class="t">Disclosures & Notes</span><span class="c muted">—</span></a></li><li><a href="../public/29-OtherLinks/index.html"><span class="n">29</span><span class="t">Other Links</span><span class="c muted">—</span></a></li></ul>
+      </article></div>
+
+    <section class="contribute">
+      <img src="../public/images/lIfering.jpg" alt="Life ring emblem">
+      <div>
+        <h3>Have photographs or a correction?</h3>
+        <p>This archive preserves Mark Farmer’s original site. Photographs, film, and documents from Texas Towers 2, 3 &amp; 4 are welcome — scanned at the highest setting, with originals returned insured. <a href="#">Get in touch →</a></p>
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer>A rehost of the original thetexastowers.com, offline since 2011, recovered from the <a href="https://archive.org/">Internet Archive</a>. Not the original author. &nbsp;·&nbsp; <a href="https://github.com/austinpilz/TheTexasTowers">GitHub Repo</a> &nbsp;·&nbsp; Mockup — Proposal B “Archive Light”</footer>
+</body></html>
