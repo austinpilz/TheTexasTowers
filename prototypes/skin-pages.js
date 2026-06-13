@@ -1,5 +1,5 @@
 // Re-skin all inner pages with the shared frosted-glass theme (PIL-12).
-// DESIGN ONLY — preserves every page's <title>, SEO block, and body content
+// DESIGN ONLY: preserves every page's <title>, SEO block, and body content
 // verbatim. It drops the legacy <style>/<bgsound>/body background, the redundant
 // "The Texas Towers.Com" nav heading (the new top bar replaces that chrome), and
 // dark inline text colors (so preserved text is legible on the dark theme).
@@ -35,7 +35,7 @@ function skin(file) {
   if (!bodyMatch) throw new Error('no <body> in ' + rel);
   let body = bodyMatch[1];
 
-  // Drop the legacy site-title nav heading (chrome) — tolerant of whitespace/&nbsp;.
+  // Drop the legacy site-title nav heading (chrome); tolerant of whitespace/&nbsp;.
   body = body.replace(/<h1[^>]*>\s*(?:&nbsp;|\s)*<a\s+href="[^"]*index\.html">\s*The Texas Towers\.Com\s*<\/a>\s*<\/h1>/i, '');
 
   // Strip dark inline text colors so preserved content is readable on dark glass.
@@ -60,7 +60,7 @@ function skin(file) {
 <div class="tt-bg"></div><div class="tt-bgphoto"></div>
 <header class="tt-topbar"><div class="tt-topin">
   <a class="tt-brand" href="${up}index.html"><img src="${up}images/lIfering.jpg" alt="Life ring emblem">THE TEXAS TOWERS</a>
-  <a class="tt-back" href="${up}index.html">← Back to the archive</a>
+  <a class="tt-back" href="${up}index.html">Back to the archive</a>
 </div></header>
 <main class="tt-main">
   <article class="tt-article">
@@ -68,7 +68,7 @@ ${body.trim()}
   </article>
 </main>
 <footer class="tt-footer">
-  <a href="${up}index.html">← The Texas Towers — home</a>
+  <a href="${up}index.html">The Texas Towers home</a>
   <span>A rehost recovered from the Internet Archive. Not the original author.</span>
 </footer>
 </body>

@@ -1,4 +1,4 @@
-/* The Texas Towers — shared frosted-glass theme for inner pages (PIL-12).
+/* The Texas Towers: shared frosted-glass theme for inner pages (PIL-12).
    Matches the home page (prototypes/build.js, Proposal C). Background image paths
    are relative to THIS file (public/assets/), so they resolve at any page depth. */
 :root{
@@ -13,7 +13,7 @@ body.tt{
   font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   -webkit-font-smoothing:antialiased;
 }
-/* atmosphere — mirrors the home page */
+/* atmosphere: mirrors the home page */
 .tt-bg{position:fixed;inset:0;z-index:-2;
   background:
    radial-gradient(120% 80% at 78% -10%, rgba(99,210,232,.16), transparent 55%),
